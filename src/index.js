@@ -1,6 +1,3 @@
-var extend = require("extend");
-
-
 module.exports = emptyFunction;
 
 
@@ -12,15 +9,13 @@ function makeEmptyFunction(value) {
     };
 }
 
-extend(emptyFunction, {
-    thatReturns: makeEmptyFunction,
-    thatReturnsFalse: makeEmptyFunction(false),
-    thatReturnsTrue: makeEmptyFunction(true),
-    thatReturnsNull: makeEmptyFunction(null),
-    thatReturnsThis: function() {
-        return this;
-    },
-    thatReturnsArgument: function(argument) {
-        return argument;
-    }
-});
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function() {
+    return this;
+};
+emptyFunction.thatReturnsArgument = function(argument) {
+    return argument;
+};
